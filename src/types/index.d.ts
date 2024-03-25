@@ -1,6 +1,17 @@
 import { MarkupStatus, MarkupType, ReportType } from "helpers/enum"
 
 declare namespace AirReport {
+  interface User {
+    id: string
+    name: string
+    email: string
+    token: string
+    isDeleted: boolean
+    metadata?: {
+      isAutodeskConnected?: boolean
+    }
+  }
+
   interface ProgressReportData {
     projectName: string
     projectLogoBase64?: string
@@ -50,6 +61,40 @@ declare namespace AirReport {
     videoWalk?: VideoWalk
     videoWalkIndex?: number
   }
+
+  interface Attachment {
+    id: string
+    objectUUID: string
+    thumbnailUUID: string
+    name: string
+    description?: string
+    size: number
+    uploadedDate: number
+    createdDate: number
+    type: AttachmentType
+    createdByUserId: string
+    sheetId: string
+    // optional
+    parentSpotId?: string
+    parentPanoImageId?: string
+    position?: LonLat
+    parentMarkupId?: string
+  }
+
+  interface Reply {
+    id: string
+    parentMarkupId: string
+    description: string
+    createdDate: number
+    updatedDate: number
+    notifyUserIdList: string[]
+    refAttachmentList: Attachment[]
+    refAttachmentIdList: string[]
+    createdByUser: {
+      email: string
+    }
+  }
+
   interface VideoWalk {
     id: string
     isPublished: boolean

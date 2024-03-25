@@ -1,8 +1,10 @@
 import { Document, Font, Page, StyleSheet } from "@react-pdf/renderer"
 import { AirReport } from "../types"
+import AttachmentSection from "./AttachmentSection"
 import BasicSection from "./BasicSection"
 import Header from "./Header"
 import LocationSection from "./LocationSection"
+import ReplySection from "./ReplySection"
 
 Font.register({
   family: "Oswald",
@@ -30,6 +32,11 @@ const MarkupReport = ({
         <>
           <BasicSection markup={markup} />
           <LocationSection />
+          <AttachmentSection />
+          <ReplySection
+            attachmentList={markup.attachmentList}
+            replyList={markup.replyList}
+          />
         </>
       ))}
     </Page>
