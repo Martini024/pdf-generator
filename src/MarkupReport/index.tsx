@@ -2,6 +2,7 @@ import { Document, Font, Page, StyleSheet } from "@react-pdf/renderer"
 import { AirReport } from "../types"
 import BasicSection from "./BasicSection"
 import Header from "./Header"
+import LocationSection from "./LocationSection"
 
 Font.register({
   family: "Oswald",
@@ -28,6 +29,7 @@ const MarkupReport = ({
       {markupList.map(markup => (
         <>
           <BasicSection markup={markup} />
+          <LocationSection />
         </>
       ))}
     </Page>
