@@ -25,6 +25,8 @@ export default function App() {
             type: "TOP",
             description:
               "Hotel sales professionals are responsible for generating revenue for hotels by selling rooms, meeting spaces, and other amenities to individuals, groups, and businesses. Their duties typically include prospecting for new clients, negotiating contracts, managing accounts, and ensuring customer satisfaction. They often work closely with marketing teams to develop promotional strategies and with event planners to coordinate functions. Additionally, they may participate in industry events and networking activities to expand their client base. Overall, their goal is to maximize occupancy rates and profitability for the hotel.",
+            accessUrl:
+              "https://dev.airsquire.ai/reports/markup?id=b77d1f5a-2000-45f7-ade4-4eeb8e5d5f03&&index=5",
             createdDate: 1710294088395,
             updatedDate: 1710311090111,
             position: {
@@ -36,7 +38,8 @@ export default function App() {
             replyList: [
               {
                 id: "d04c96dd-972a-4d9e-b58d-278a86ce99df",
-                description: "I uploaded",
+                description:
+                  "This code snippet appears to be written in JavaScript and is intended to create an array called referencingAttachments based on reply.refAttachmentIdList. Each element of referencingAttachments corresponds to the index position in the attachmentList array where the attachment ID from reply.refAttachmentIdList is found plus one. If the ID is not found, undefined is pushed to referencingAttachments.",
                 createdDate: 1710311059848,
                 createdByUserId: "auth0|602222f71618ba0068124a4c",
                 createdByUser: {
@@ -222,6 +225,7 @@ export default function App() {
                 createdDate: 1710311023448,
                 size: 5508908,
                 createdByUserId: "auth0|602222f71618ba0068124a4c",
+                parentMarkupId: "7807f436-d4e6-4587-9eed-5bf87b7f7f64",
                 __typename: "Attachment",
               },
               {
@@ -235,6 +239,7 @@ export default function App() {
                 createdDate: 1710294445889,
                 size: 1237589,
                 createdByUserId: "auth0|63ca646f7de4d40ac38283ea",
+                parentMarkupId: "7807f436-d4e6-4587-9eed-5bf87b7f7f64",
                 __typename: "Attachment",
               },
               {
@@ -248,6 +253,7 @@ export default function App() {
                 createdDate: 1710294423928,
                 size: 1194864,
                 createdByUserId: "auth0|63ca646f7de4d40ac38283ea",
+                parentMarkupId: "7807f436-d4e6-4587-9eed-5bf87b7f7f64",
                 __typename: "Attachment",
               },
               {
@@ -261,6 +267,7 @@ export default function App() {
                 createdDate: 1710294400848,
                 size: 759341,
                 createdByUserId: "auth0|63ca646f7de4d40ac38283ea",
+                parentMarkupId: "7807f436-d4e6-4587-9eed-5bf87b7f7f64",
                 __typename: "Attachment",
               },
               {
@@ -274,6 +281,7 @@ export default function App() {
                 createdDate: 1710294348005,
                 size: 1108450,
                 createdByUserId: "auth0|63ca646f7de4d40ac38283ea",
+                parentMarkupId: "7807f436-d4e6-4587-9eed-5bf87b7f7f64",
                 __typename: "Attachment",
               },
               {
@@ -287,6 +295,7 @@ export default function App() {
                 createdDate: 1710294200701,
                 size: 1290657,
                 createdByUserId: "auth0|63ca646f7de4d40ac38283ea",
+                parentMarkupId: "7807f436-d4e6-4587-9eed-5bf87b7f7f64",
                 __typename: "Attachment",
               },
               {
@@ -300,6 +309,7 @@ export default function App() {
                 createdDate: 1710294206426,
                 size: 812287,
                 createdByUserId: "auth0|63ca646f7de4d40ac38283ea",
+                parentMarkupId: "7807f436-d4e6-4587-9eed-5bf87b7f7f64",
                 __typename: "Attachment",
               },
               {
@@ -313,6 +323,7 @@ export default function App() {
                 createdDate: 1710294212899,
                 size: 1218295,
                 createdByUserId: "auth0|63ca646f7de4d40ac38283ea",
+                parentMarkupId: "7807f436-d4e6-4587-9eed-5bf87b7f7f64",
                 __typename: "Attachment",
               },
               {
@@ -326,6 +337,7 @@ export default function App() {
                 createdDate: 1710294220182,
                 size: 759341,
                 createdByUserId: "auth0|63ca646f7de4d40ac38283ea",
+                parentMarkupId: "7807f436-d4e6-4587-9eed-5bf87b7f7f64",
                 __typename: "Attachment",
               },
               {
@@ -339,6 +351,7 @@ export default function App() {
                 createdDate: 1710294264328,
                 size: 798852,
                 createdByUserId: "auth0|63ca646f7de4d40ac38283ea",
+                parentMarkupId: "7807f436-d4e6-4587-9eed-5bf87b7f7f64",
                 __typename: "Attachment",
               },
               {
@@ -352,6 +365,7 @@ export default function App() {
                 createdDate: 1710294128482,
                 size: 559070,
                 createdByUserId: "auth0|63ca646f7de4d40ac38283ea",
+                parentMarkupId: "7807f436-d4e6-4587-9eed-5bf87b7f7f64",
                 __typename: "Attachment",
               },
             ],

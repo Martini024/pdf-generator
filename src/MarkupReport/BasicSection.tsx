@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextProps, View } from "@react-pdf/renderer"
+import { Link, StyleSheet, Text, TextProps, View } from "@react-pdf/renderer"
 import { Style } from "@react-pdf/types/style"
 import dayjs from "dayjs"
 import { ReactElement } from "react"
@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 15,
     color: "rgb(0, 110, 175)",
+    textDecoration: "none",
   },
   fieldLabel: {
     fontSize: 9,
@@ -58,8 +59,15 @@ interface BasicSectionProps {
 export default function BasicSection({ markup }: BasicSectionProps) {
   const titleRender = `${markup.type} #${markup.index}: ${markup.name}`
   return (
-    <View>
-      <Text style={styles.title}>{titleRender}</Text>
+    <View style={{ marginBottom: 8 }}>
+      {markup.accessUrl ? (
+        <Link style={styles.title} src={markup.accessUrl}>
+          {titleRender}
+        </Link>
+      ) : (
+        <Text style={styles.title}>{titleRender}</Text>
+      )}
+      <View style={commonStyles.sectionMargin} />
       <Text style={commonStyles.sectionTitle}>Basic Information</Text>
       <SectionDivider />
       <Field label="Status" value={markup.status} />

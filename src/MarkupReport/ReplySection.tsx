@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "@react-pdf/renderer"
+import { Link, StyleSheet, Text, View } from "@react-pdf/renderer"
 import dayjs from "dayjs"
 import { AirReport } from "../types"
 import commonStyles from "./commonStyles"
@@ -42,9 +42,13 @@ const styles = StyleSheet.create({
 
 const ReplyItem = ({
   reply,
+  first,
+  last,
   attachmentList,
 }: {
   reply: AirReport.Reply
+  first: boolean
+  last: boolean
   attachmentList: AirReport.Attachment[]
 }) => {
   const referencingAttachments = reply.refAttachmentIdList
@@ -56,11 +60,13 @@ const ReplyItem = ({
     })
     .filter(index => index !== -1)
     .sort((a, b) => a - b)
-    .map(index => `#${index + 1}`)
-    .join(", ")
+    .map(index => index + 1)
 
   return (
-    <>
+    <View wrap={false}>
+      <View
+        style={first ? commonStyles.sectionDivider : commonStyles.itemDivider}
+      />
       <View
         style={{
           flexDirection: "row",
@@ -90,16 +96,19 @@ const ReplyItem = ({
         <View style={{ flex: 10 }}>
           <Text>
             <Text style={styles.text}>{reply.description}</Text>
-            {referencingAttachments && (
-              <Text
+            {referencingAttachments.map((referencingNumber, index, arr) => (
+              <Link
                 style={styles.reference}
-              >{` ${referencingAttachments}`}</Text>
-            )}
+                src={`#${reply.parentMarkupId}-${referencingNumber}`}
+              >{` #${referencingNumber}${
+                index !== arr.length - 1 ? "," : ""
+              }`}</Link>
+            ))}
           </Text>
         </View>
       </View>
-      <View style={commonStyles.itemDivider} />
-    </>
+      {last && <View style={commonStyles.itemDivider} />}
+    </View>
   )
 }
 
@@ -112,13 +121,22 @@ export default function ReplySection({
   replyList,
   attachmentList,
 }: ReplySectionProps) {
-  return (
-    <View>
-      <Text style={commonStyles.sectionTitle}>Replies</Text>
-      <View style={commonStyles.sectionDivider} />
-      {replyList.map(reply => (
-        <ReplyItem reply={reply} attachmentList={attachmentList} />
-      ))}
-    </View>
-  )
+  if (replyList.length > 0)
+    return (
+      <View>
+        <Text style={commonStyles.sectionTitle}>Replies</Text>
+        <View>
+          {replyList.map((reply, index, arr) => (
+            <ReplyItem
+              key={reply.id}
+              first={index === 0}
+              last={index === arr.length - 1}
+              reply={reply}
+              attachmentList={attachmentList}
+            />
+          ))}
+        </View>
+      </View>
+    )
+  return null
 }

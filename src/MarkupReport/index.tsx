@@ -2,6 +2,7 @@ import { Document, Font, Page, StyleSheet } from "@react-pdf/renderer"
 import { AirReport } from "../types"
 import AttachmentSection from "./AttachmentSection"
 import BasicSection from "./BasicSection"
+import Footer from "./Footer"
 import Header from "./Header"
 import LocationSection from "./LocationSection"
 import ReplySection from "./ReplySection"
@@ -13,7 +14,9 @@ Font.register({
 
 const styles = StyleSheet.create({
   body: {
-    paddingVertical: 16,
+    position: "relative",
+    paddingTop: 16,
+    paddingBottom: 44,
     paddingHorizontal: 32,
   },
 })
@@ -32,11 +35,12 @@ const MarkupReport = ({
         <>
           <BasicSection markup={markup} />
           <LocationSection />
-          <AttachmentSection />
+          <AttachmentSection attachmentList={markup.attachmentList} />
           <ReplySection
             attachmentList={markup.attachmentList}
             replyList={markup.replyList}
           />
+          <Footer accessUrl={markup.accessUrl} />
         </>
       ))}
     </Page>
